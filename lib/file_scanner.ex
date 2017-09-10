@@ -52,7 +52,7 @@ defmodule FileScanner do
       chunk_length  <- chunk |> String.length,
       # position (current position)
       # len (length of data up to the newline)
-      # + 1 (skip the position of the delimiter)
+      # + length of delimiter (skip the position of the delimiter)
       new_position  <- fs.position + chunk_length + String.length(fs.delimiter)
     do
       case done_or_continue(chunk_length, fs.chunk_size) do
